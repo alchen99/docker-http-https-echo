@@ -1,3 +1,13 @@
 .git
+.gitignore
 node_modules
+screenshots
 *.png
+Dockerfile
+.dockerignore
+k8
+
+# ignore all markdown files (md) beside all README*.md other than README-secret.md
+*.md
+!README*.md
+README-secret.md

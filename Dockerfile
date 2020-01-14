@@ -4,13 +4,12 @@ WORKDIR /app
 
 COPY . .
 
-RUN rm -rf screenshots/
-
-RUN npm install --production
-
-RUN apk --no-cache add openssl
-
-RUN sh generate-cert.sh
+RUN apk update \
+    && apk upgrade \
+    && apk --no-cache add openssl \
+    && npm install --production \
+    && ls -la . \
+    && ./generate-cert.sh
 
 EXPOSE 80 443
 

@@ -1,0 +1,25 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: web-echo
+  name: web-echo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: web-echo
+  template:
+    metadata:
+      labels:
+        app: web-echo
+    spec:
+      containers:
+      - image: web-echo
+        name: alchen99/web-echo:latest
+        ports:
+        - containerPort: 80
+          protocol: TCP
+        - containerPort: 443
+          protocol: TCP

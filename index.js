@@ -9,7 +9,11 @@ var concat = require('concat-stream');
 
 app.set('json spaces', 2);
 
-app.use(morgan('combined'));
+morganOptions = {
+    skip: function (req, res) { return res.statusCode < 400; }
+};
+
+app.use(morgan('combined', morganOptions));
 
 app.use(function(req, res, next){
   req.pipe(concat(function(data){
@@ -47,8 +51,7 @@ app.all('*', (req, res) => {
     }
   }
   res.json(echo);
-  console.log('-----------------')
-  console.log(echo);
+  console.log(JSON.stringify(echo, null, 2));
 });
 
 const sslOpts = {

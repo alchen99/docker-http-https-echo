@@ -5,7 +5,7 @@ metadata:
   name: web-echo
 spec:
   selector:
-    app: nginx
+    app: web-echo
   sessionAffinity: None
   type: ClusterIP
   ports:

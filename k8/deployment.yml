@@ -16,8 +16,8 @@ spec:
         app: web-echo
     spec:
       containers:
-      - image: web-echo
-        name: alchen99/web-echo:latest
+      - name: web-echo
+        image: alchen99/web-echo:latest
         ports:
         - containerPort: 80
           protocol: TCP
